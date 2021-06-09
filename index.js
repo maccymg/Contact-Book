@@ -51,3 +51,29 @@ app.get('/contacts/:id', async (req, res) => {
     return res.status(404).json({ 'message': 'Not Found' })
   }
 })
+
+app.put('/contacts/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    const contactToEdit = await Contact.findById(id)
+    if (!contactToEdit) throw new Error()
+    Object.assign(contactToEdit, req.body)
+    await contactToEdit.save()
+    return res.status(202).json(contactToEdit)
+  } catch (err) {
+    console.log(err)
+  }
+})
+
+app.delete('/contacts/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    const contactToDelete = await Contact.findById(id)
+    if (!contactToDelete) throw new Error()
+    await contactToDelete.remove()
+    return res.sendStatus(204)
+  } catch (err) {
+    console.log(err)
+    return res.status(404).json({ 'message': 'Not Found' })
+  }
+})
