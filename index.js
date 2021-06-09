@@ -18,3 +18,37 @@ async function startServer() {
 
 startServer()
 
+app.use(express.json())
+
+app.use((req, _res, next) => {
+  console.log(`🚨 Incoming Request: ${req.method} - ${req.url}`)
+  next()
+})
+
+app.get('/contacts', async (req, res) => {
+  const contacts = await Contact.find()
+  return res.status(200).json(contacts)
+})
+
+app.post('/contacts', async (req, res) => {
+  try {
+    const newContact = await Contact.create(req.body)
+    return res.status(201).json(newContact)
+  } catch (err) {
+    console.log(err)
+    return res.status(422).json(err)
+  }
+})
+
+app.get('/contacts/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    const contactToEdit = await Contact.findById(id)
+    if (!contactToEdit) throw new Error()
+    Object.assign(contactToEdit, req.body)
+    await contactToEdit.save()
+    return res.status(202).json(contactToEdit)
+  } catch (err) {
+    console.log(err)
+  }
+})
