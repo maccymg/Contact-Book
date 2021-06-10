@@ -2,6 +2,7 @@ import express from 'express'
 import Contact from './models/contact.js'
 import { port } from './config/environment.js'
 import connectToDatabase from './lib/connectToDb.js'
+import logger from './lib/logger.js'
 
 const app = express()
 
@@ -19,6 +20,8 @@ async function startServer() {
 startServer()
 
 app.use(express.json())
+
+app.use(logger)
 
 app.use((req, _res, next) => {
   console.log(`🚨 Incoming Request: ${req.method} - ${req.url}`)
