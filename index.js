@@ -1,8 +1,8 @@
 import express from 'express'
-import Contact from './models/contact.js'
 import { port } from './config/environment.js'
 import connectToDatabase from './lib/connectToDb.js'
 import logger from './lib/logger.js'
+import router from './config/router.js'
 
 const app = express()
 
@@ -23,60 +23,9 @@ app.use(express.json())
 
 app.use(logger)
 
+app.use(router)
+
 app.use((req, _res, next) => {
   console.log(`🚨 Incoming Request: ${req.method} - ${req.url}`)
   next()
-})
-
-app.get('/contacts', async (req, res) => {
-  const contacts = await Contact.find()
-  return res.status(200).json(contacts)
-})
-
-app.post('/contacts', async (req, res) => {
-  try {
-    const newContact = await Contact.create(req.body)
-    return res.status(201).json(newContact)
-  } catch (err) {
-    console.log(err)
-    return res.status(422).json(err)
-  }
-})
-
-app.get('/contacts/:id', async (req, res) => {
-  const { id } = req.params
-  try {
-    const contact = await Contact.findById(id)
-    if (!contact) throw new Error()
-    return res.status(200).json(contact)
-  } catch (err) {
-    console.log(err)
-    return res.status(404).json({ 'message': 'Not Found' })
-  }
-})
-
-app.put('/contacts/:id', async (req, res) => {
-  const { id } = req.params
-  try {
-    const contactToEdit = await Contact.findById(id)
-    if (!contactToEdit) throw new Error()
-    Object.assign(contactToEdit, req.body)
-    await contactToEdit.save()
-    return res.status(202).json(contactToEdit)
-  } catch (err) {
-    console.log(err)
-  }
-})
-
-app.delete('/contacts/:id', async (req, res) => {
-  const { id } = req.params
-  try {
-    const contactToDelete = await Contact.findById(id)
-    if (!contactToDelete) throw new Error()
-    await contactToDelete.remove()
-    return res.sendStatus(204)
-  } catch (err) {
-    console.log(err)
-    return res.status(404).json({ 'message': 'Not Found' })
-  }
 })
