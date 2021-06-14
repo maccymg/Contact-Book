@@ -1,9 +1,14 @@
 import React from 'react'
 
+import Nav from '../common/Nav'
+
 function ContactIndex() {
 
   return (
-    <h1>Contact Index</h1>
+    <>
+      <Nav />
+      <h1>Contact Index</h1>
+    </>
   )
 }
 
