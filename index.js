@@ -17,7 +17,7 @@ async function startServer() {
 
     app.use(logger)
 
-    app.use(router)
+    app.use('/api', router)
 
     app.use(errorHandler)
 
@@ -34,7 +34,3 @@ async function startServer() {
 startServer()
 
 
-// app.use((req, _res, next) => {
-//   console.log(`🚨 Incoming Request: ${req.method} - ${req.url}`)
-//   next()
-// })
