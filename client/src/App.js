@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={ContactIndex} />
-        <Route path="/contact/:id" component={ContactShow} />
+        <Route path="/contacts/:id" component={ContactShow} />
         <Route path="/contact/new" component={ContactCreate} />
       </Switch>
     </BrowserRouter>

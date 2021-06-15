@@ -11,7 +11,7 @@ function Nav() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="relative">
+      <AppBar className={classes.nav} position="relative">
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>Contact Book</Typography>
           <div className={classes.search}>
