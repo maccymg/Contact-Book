@@ -33,6 +33,14 @@ function ContactIndex() {
     contact.secondName.toLowerCase().includes(formdata.toLowerCase()) || contact.firstName.toLowerCase().includes(formdata.toLowerCase()) || contact.email.toLowerCase().includes(formdata.toLowerCase()) || contact.phoneNumber.includes(formdata)
   )) : null
 
+  const sortedContacts = filteredContacts ? filteredContacts.sort((lastOne, nextOne) => {
+    const alast = lastOne.secondName.split(', ')
+    const blast = nextOne.secondName.split(', ')
+    return alast > blast ? 1 : -1
+  }) : null
+
+  
+
   const handleInput = event => {
     const value = event.target.value
     setFormdata(value)
@@ -67,7 +75,7 @@ function ContactIndex() {
       </div>
       <div className={classes.navDiv}></div>
       <div className={classes.gridContainer}>
-        {contacts && filteredContacts.map(contact => (
+        {contacts && sortedContacts.map(contact => (
           <div key={contact._id}>
             <Link to={`/contacts/${contact._id}`} style={{ textDecoration: 'none', color: 'black' }}>
               <Grid className={classes.grid}
