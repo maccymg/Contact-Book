@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#00C301',
   },
 
+  navDiv: {
+    height: '50px',
+  },
+
   grow: {
     flexGrow: 1,
   },
