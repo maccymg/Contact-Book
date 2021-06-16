@@ -34,8 +34,8 @@ function ContactIndex() {
   )) : null
 
   const sortedContacts = filteredContacts ? filteredContacts.sort((lastOne, nextOne) => {
-    const alast = lastOne.secondName.split(', ')
-    const blast = nextOne.secondName.split(', ')
+    const alast = lastOne.secondName
+    const blast = nextOne.secondName
     return alast > blast ? 1 : -1
   }) : null
 
@@ -67,9 +67,11 @@ function ContactIndex() {
                 onChange={handleInput}
               />
             </div>
-            <IconButton aria-label="add">
-              <AddIcon />
-            </IconButton>
+            <Link to={'/contact/new'} style={{ textDecoration: 'none', color: 'black' }}>
+              <IconButton>
+                <AddIcon />
+              </IconButton>
+            </Link>
           </Toolbar>
         </AppBar>
       </div>
