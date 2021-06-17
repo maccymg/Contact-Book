@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAllContacts } from '../../lib/api'
 import { Link } from 'react-router-dom'
-import { Grid, Typography, AppBar, InputBase, Toolbar, IconButton } from '@material-ui/core'
+import { Container, Typography, AppBar, InputBase, Toolbar, IconButton } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 import AddIcon from '@material-ui/icons/Add'
 import useStyles from '../../styles'
@@ -34,8 +34,8 @@ function ContactIndex() {
   )) : null
 
   const sortedContacts = filteredContacts ? filteredContacts.sort((lastOne, nextOne) => {
-    const alast = lastOne.secondName
-    const blast = nextOne.secondName
+    const alast = lastOne.secondName.toLowerCase()
+    const blast = nextOne.secondName.toLowerCase()
     return alast > blast ? 1 : -1
   }) : null
 
@@ -76,17 +76,15 @@ function ContactIndex() {
         </AppBar>
       </div>
       <div className={classes.navDiv}></div>
-      <div className={classes.gridContainer}>
+      <div className={classes.container}>
         {contacts && sortedContacts.map(contact => (
           <div key={contact._id}>
             <Link to={`/contacts/${contact._id}`} style={{ textDecoration: 'none', color: 'black' }}>
-              <Grid className={classes.grid}
-                container
-              >
+              <Container className={classes.contactContainer}>
                 <div>
                   <Typography className={classes.contact} variant="h6">{contact.firstName} <span className={classes.secondName}>{contact.secondName}</span></Typography>
                 </div>
-              </Grid>
+              </Container>
             </Link>
           </div>
         ))}

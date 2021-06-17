@@ -1,7 +1,8 @@
 import React from 'react'
+import SimpleNav from '../common/SimpleNav'
 import { useHistory } from 'react-router-dom'
 import { createContact } from '../../lib/api'
-import { TextField } from '@material-ui/core'
+import { TextField, Container, Button } from '@material-ui/core'
 import useStyles from '../../styles'
 
 function ContactCreate() {
@@ -18,13 +19,6 @@ function ContactCreate() {
     image: '',
   })
 
-  const [errordata, setErrordata] = React.useState({
-    firstName: '',
-    secondName: '',
-    email: '',
-    phoneNumber: '',
-    image: '',
-  })
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -33,23 +27,23 @@ function ContactCreate() {
       console.log(data)
       history.push('/')
     } catch (err) {
-      setErrordata(err.response.data)
+      console.log(err)
     }
   }
 
   const handleChange = event => {
     const value = event.target.value
     setContactData({ ...contactData, [event.target.name]: value })
-    setErrordata('')
   }
 
 
 
   return (
-    <div>
-      <div className="form-content">
-        <form onSubmit={handleSubmit} className="form">
-          <div className="form-group">
+    <div className={classes.createContainer}>
+      <SimpleNav />
+      <Container className={classes.formContainer}>
+        <form onSubmit={handleSubmit} className={classes.form}>
+          <div className={classes.formGroup}>
             <TextField
               className={classes.input}
               required
@@ -59,90 +53,60 @@ function ContactCreate() {
               onChange={handleChange}
               name="firstName"
             />
-            {errordata.firstName ?
-              <div className="error-message">{`*${errordata.firstName}`}</div>
-              :
-              <div className="error-message"></div>
-            }
-            {/* <label className="label">
-              <input
-                className="input"
-                placeholder="First Name"
-                onChange={handleChange}
-                name="firstName"
-                value={contactData.firstName}
-              />
-            </label> */}
           </div>
-          <div className="form-group">
-            <label className="label">
-              <input
-                className="input"
-                placeholder="Second Name"
-                onChange={handleChange}
-                name="secondName"
-                value={contactData.secondName}
-              />
-            </label>
-            {errordata.secondName ?
-              <div className="error-message">*{errordata.secondName}</div>
-              :
-              <div className="error-message"></div>
-            }
+          <div className={classes.formGroup}>
+            <TextField
+              className={classes.input}
+              required
+              label="Second Name"
+              value={contactData.secondName}
+              variant="outlined"
+              onChange={handleChange}
+              name="secondName"
+            />
           </div>
-          <div className="form-group">
-            <label className="label">
-              <input
-                className="input"
-                placeholder="Email"
-                onChange={handleChange}
-                name="email"
-                value={contactData.email}
-              />
-            </label>
-            {errordata.email ?
-              <div className="error-message">*{errordata.email}</div>
-              :
-              <div className="error-message"></div>
-            }
+          <div className={classes.formGroup}>
+            <TextField
+              className={classes.input}
+              required
+              label="Email"
+              value={contactData.email}
+              variant="outlined"
+              onChange={handleChange}
+              name="email"
+            />
           </div>
-          <div className="form-group">
-            <label className="label">
-              <input
-                className="input"
-                placeholder="Phone Number"
-                onChange={handleChange}
-                name="phoneNumber"
-                value={contactData.phoneNumber}
-              />
-            </label>
-            {errordata.phoneNumber ?
-              <div className="error-message">*{errordata.phoneNumber}</div>
-              :
-              <div className="error-message"></div>
-            }
+          <div className={classes.formGroup}>
+            <TextField
+              className={classes.input}
+              required
+              label="Phone Number"
+              value={contactData.phoneNumber}
+              variant="outlined"
+              onChange={handleChange}
+              name="phoneNumber"
+            />
           </div>
-          <div className="form-group">
-            <label className="label">
-              <input
-                className="input"
-                placeholder="image"
-                onChange={handleChange}
-                name="image"
-                value={contactData.image}
-              />
-            </label>
-            {errordata.image ?
-              <div className="error-message">*{errordata.image}</div>
-              :
-              <div className="error-message"></div>
-            }
+          <div className={classes.formGroup}>
+            <TextField
+              className={classes.input}
+              label="Image"
+              value={contactData.image}
+              variant="outlined"
+              onChange={handleChange}
+              name="image"
+            />
           </div>
-          <div className="form-footer">
-            <button type="submit" className="button">Create Contract</button>
+          <div className={classes.buttonContainer}>
+            <Button className={classes.button} 
+              variant="outlined"
+              type="submit"
+            >
+            Submit
+            </Button>
           </div>
         </form>
-      </div>
+      </Container>
     </div>
   )
 }

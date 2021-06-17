@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
 
   nav: {
     backgroundColor: '#00C301',
+    alignItems: 'center',
   },
 
   navDiv: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
   grow: {
     flexGrow: 1,
+    width: '80%',
   },
 
   title: {
@@ -63,30 +65,70 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  gridContainer: {
+  container: {
     marginTop: '20px',
   },
 
-  grid: {
+  contactContainer: {
     justifyContent: 'center',
     alignItems: 'flex-start',
     flexDirection: 'column',
-    marginLeft: '30px',
-    borderBottom: '1px solid #d9d9d9',
-    width: '90%',
-    [theme.breakpoints.up('sm')]: {
-      width: '95%',
-    },
   },
 
   contact: {
-    paddingTop: '12px',
-    paddingBottom: '12px',
+    paddingTop: '14px',
+    paddingBottom: '14px',
+    borderBottom: '1px solid #d9d9d9',
   },
 
   secondName: {
     fontWeight: 'bold',
   },
+
+  formContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    marginTop: '100px',
+    marginBottom: '80px',
+  },
+
+  createContainer: {
+    width: '100%',
+  },
+
+  input: {
+    marginTop: '10px',
+    marginBottom: '10px',
+    width: '100%',
+  },
+
+  formGroup: {
+    width: '250px',
+    [theme.breakpoints.up('sm')]: {
+      width: '300px',
+    },
+  },
+
+  form: {
+    border: '2px solid #00C301',
+    padding: '40px 60px 20px 60px',
+    borderRadius: '5px',
+  },
+
+
+  button: {
+    color: '#00C301',
+  },
+
+  buttonContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingTop: '20px',
+  },
+
 
 }))
 
