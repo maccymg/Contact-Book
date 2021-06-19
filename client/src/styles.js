@@ -129,6 +129,29 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '20px',
   },
 
+  cardImage: {
+    height: '200px',
+    width: '200px',
+    marginTop: '40px',
+  },
+
+  cardContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    marginTop: '100px',
+    marginBottom: '80px',
+  },
+
+  card: {
+    width: '400px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
 
 }))
 
