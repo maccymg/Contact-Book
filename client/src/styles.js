@@ -133,6 +133,7 @@ const useStyles = makeStyles((theme) => ({
     height: '200px',
     width: '200px',
     marginTop: '40px',
+    border: '1px solid grey',
   },
 
   cardContainer: {
@@ -140,13 +141,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     display: 'flex',
-    marginTop: '100px',
+    marginTop: '40px',
+    [theme.breakpoints.up('sm')]: {
+      marginTop: '100px',
+    },
     marginBottom: '80px',
   },
 
   card: {
-    width: '400px',
-    justifyContent: 'center',
+    width: '300px',
+    [theme.breakpoints.up('sm')]: {
+      width: '400px',
+    },
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',

@@ -1,5 +1,6 @@
 import React from 'react'
-import { getSingleContact } from '../../lib/api'
+import { useHistory } from 'react-router-dom'
+import { getSingleContact, deleteContact } from '../../lib/api'
 import { useParams } from 'react-router-dom'
 import SimpleNav from '../common/SimpleNav'
 import { Typography, Container, Card, CardMedia, CardContent, CardActions, IconButton } from '@material-ui/core'
@@ -9,6 +10,7 @@ import useStyles from '../../styles'
 
 function ContactShow() {
   const classes = useStyles()
+  const history = useHistory()
 
   const [contact, setContact] = React.useState(null)
 
@@ -25,6 +27,18 @@ function ContactShow() {
     }
     getData()
   }, [id])
+
+
+  const handleDelete = async event => {
+    event.preventDefault()
+    try {
+      const { data } = await deleteContact(id)
+      console.log(data)
+      history.push('/')
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <>
@@ -45,7 +59,9 @@ function ContactShow() {
                 <IconButton>
                   <EditIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton
+                  onClick={handleDelete}
+                >
                   <DeleteIcon />
                 </IconButton>
               </CardActions>
