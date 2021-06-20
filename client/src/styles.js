@@ -158,6 +158,36 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
 
+  editInput: {
+    marginTop: '5px',
+    marginBottom: '5px',
+    width: '100%',
+  },
+
+  editFormGroup: {
+    width: '200px',
+  },
+
+  editForm: {
+    // border: '2px solid #00C301',
+    // padding: '40px 60px 20px 60px',
+    // borderRadius: '5px',
+  },
+
+
+  editButton: {
+    color: '#00C301',
+    marginLeft: '10px',
+    marginRight: '10px',
+  },
+
+  editButtonContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: '20px',
+  },
+
 
 }))
 
