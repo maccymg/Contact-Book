@@ -78,10 +78,17 @@ function ContactShow() {
       { contact ?
         <Container className={classes.cardContainer} maxWidth="md">
           <Card className={classes.card} raised>
-            <CardMedia
-              className={classes.cardImage}
-              image={contact.image}
-            />
+            { contact.image === undefined ?
+              <CardMedia
+                className={classes.cardImage}
+                image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+              />
+              :
+              <CardMedia
+                className={classes.cardImage}
+                image={contact.image}
+              />
+            }
             <CardContent>
               { isEditOpen ?
                 <form onSubmit={handleSubmit} className={classes.editForm}>
