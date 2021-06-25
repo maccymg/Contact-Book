@@ -80,7 +80,7 @@ Having created the contact model, I began thinking of how far I was going to pus
 
 I then set about creating my get and post controllers and finally the put and delete testing them regularly using Insomnia to check everything was working as expected. I then moved out the logger and used one that had been given to us on the course that makes it really clear in the console the requests you are making and the information attached to the these. I then set about building the seeding for my app. Having created this I realised a problem with my data as the phone number key which I had made a type of number was causing the numbers to be wrong as the 0 at the begging of the numbers was being cut off. To solve this, I changed its type to a string and ran the database seeding again. At this point my index,js began to get cluttered again so I moved the controllers out to a separate file and also created a router to send the controllers through. 
 
-### Error Handling
+### Error handling
 
 I then began creating an error handler to updating the controllers to use this when an error occurred. Having used this error handler before I was surprised that when I was trying to deal with form errors later when creating the frontend that it wasn’t working as I had hoped. While keys that I had made unique where preventing the user from creating a new contact it was throwing an error status 500 rather than a 422 validation error as I had hoped and therefore I was not able to access the errors object to feed that information back to the user. This is something that I will have to have a deeper look at to see what I could have done differently.
 
@@ -166,16 +166,16 @@ const filteredContacts = contacts ? contacts.filter(contact => (
 
 This was a challenging page as I was dealing with Material UI forms and the logic behind the create request. This posed challenging problems with the error handling not working as I would have hoped and so had to use Material UI props to give some information back to the user but still this wasn’t as complete as I would have hoped.
 
-### Contact Show 
+### Contact show 
 
 Having set up the basic logic for the contact show page I began adding the edit and delete actions. While the delete was relatively simple the edit caused a few problems. Having found a default value prop on the Text Field component I thought I would be able to use this to capture the old data so it was there and then the value prop to set new state when typing the new information. This however caused an error as the props didn’t work together and so annoyingly I had to settle for using the placeholder to display the old data. Finally, I added a basic image for contacts that didn’t have an image as I didn’t make the image required in the contacts model.
 
 ![Picture](contact-edit.png)
 
-### Future Features
+### Future features
 
 Future features involve restructuring the backend to have users with embedded contact models. In terms of the front end adding an alphabetical slider on the side. Fixing error handling as to give the user the full information about why there create contact request might not be working. Similarly, editing the data without clearing the input boxes and a file upload for the image field.
 
-### Key Learning
+### Key learning
 
 Key learning included Material UI, manipualting arrays and filtering data.
