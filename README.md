@@ -41,7 +41,9 @@ Add in package.json inside scripts:
 
 
 yarn dev – run the backend
+
 yarn seed – run the database seeding, have to kill the server to run this commad
+
 yarn dev-fullstack – run the backend and frontend together
 
 
