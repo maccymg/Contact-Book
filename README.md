@@ -35,9 +35,9 @@ In the client folder, yarn add:
 
 Add in package.json inside scripts:
 
-"dev": "npx nodemon",
-"seed": "node db/seeds.js",
-"dev-fullstack": "concurrently \"yarn dev\" \"cd client && yarn start\""
+- "dev": "npx nodemon",
+- "seed": "node db/seeds.js",
+- "dev-fullstack": "concurrently \"yarn dev\" \"cd client && yarn start\""
 
 
 yarn dev – run the backend
