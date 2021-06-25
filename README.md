@@ -12,7 +12,7 @@ In this project, I was tasked with creating a program that can be used to manage
 - The contacts must persist
 
 
-![Picture](tablet-size.png)
+![Picture](Screenshot 2021-06-25 at 14.54.29.png)
 
 
 URL - not launched
