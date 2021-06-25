@@ -1,8 +1,6 @@
 import axios from 'axios'
 
-
 const baseUrl = '/api'
-
 
 export function getAllContacts() {
   return axios.get(`${baseUrl}/contacts`)

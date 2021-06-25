@@ -78,7 +78,7 @@ function ContactShow() {
       { contact ?
         <Container className={classes.cardContainer} maxWidth="md">
           <Card className={classes.card} raised>
-            { contact.image === undefined ?
+            { contact.image === undefined || contact.image === '' ?
               <CardMedia
                 className={classes.cardImage}
                 image="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
@@ -167,7 +167,7 @@ function ContactShow() {
                       variant="outlined"
                       type="submit"
                     >
-                    Submit
+                    Save
                     </Button>
                   </div>
                 </form>
