@@ -172,7 +172,7 @@ Having set up the basic logic for the contact show page I began adding the edit 
 
 ### Future Features
 
-Future features involve restructuring the backend to have users with embedded contact models. In terms of the front end adding an alphabetical slider on the side. Fixing error handling as to give the user the full information about why there create contact request might not be working. Similarly, editing the data without clearing the input boxes.
+Future features involve restructuring the backend to have users with embedded contact models. In terms of the front end adding an alphabetical slider on the side. Fixing error handling as to give the user the full information about why there create contact request might not be working. Similarly, editing the data without clearing the input boxes and a file upload for the image field.
 
 ### Key Learning
 
