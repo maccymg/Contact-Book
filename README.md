@@ -12,7 +12,7 @@ In this project, I was tasked with creating a program that can be used to manage
 - The contacts must persist
 
 
-![Picture](Screenshot 2021-06-25 at 14.54.29.png)
+![Picture](default-screen.png)
 
 
 URL - not launched
@@ -85,7 +85,7 @@ I then set about creating my get and post controllers and finally the put and de
 I then began creating an error handler to updating the controllers to use this when an error occurred. Having used this error handler before I was surprised that when I was trying to deal with form errors later when creating the frontend that it wasn’t working as I had hoped. While keys that I had made unique where preventing the user from creating a new contact it was throwing an error status 500 rather than a 422 validation error as I had hoped and therefore I was not able to access the errors object to feed that information back to the user. This is something that I will have to have a deeper look at to see what I could have done differently.
 
 
-![Picture](p-w-duo-sizing.png)
+![Picture](contact-view.png)
 
 ### Adding the front-end
 
@@ -146,6 +146,8 @@ export function editContact(editContactData, id) {
 
 I then set about creating the search bar in the nav. This created a problem as the information needed including for the search bar including the formdata and filtered contacts was inside the index.js and the input was currently in a separate component. Instead of trying to pass state and the contact info down to the nav, I thought it would be easier to move the nav inside index js and create a simpler nav for the other pages that didn’t need the search bar. Having completed this, I set about creating the logic behind sorting the contacts in alphabetical order as with a search bar I deemed this a necessary aspect of a contact book.
 
+![Picture](contact-searchbar.png)
+
 ```JavaScript
 // Filtering and sorting
 
@@ -168,7 +170,7 @@ This was a challenging page as I was dealing with Material UI forms and the logi
 
 Having set up the basic logic for the contact show page I began adding the edit and delete actions. While the delete was relatively simple the edit caused a few problems. Having found a default value prop on the Text Field component I thought I would be able to use this to capture the old data so it was there and then the value prop to set new state when typing the new information. This however caused an error as the props didn’t work together and so annoyingly I had to settle for using the placeholder to display the old data. Finally, I added a basic image for contacts that didn’t have an image as I didn’t make the image required in the contacts model.
 
-
+![Picture](contact-edit.png)
 
 ### Future Features
 
